@@ -3,3 +3,16 @@ spring:
     name: portfolio-tracker
   profiles:
     active: dev
+  datasource:
+    url: ${jdbc:postgresql://portfolio_tracker_db_4gxa_user:gGQVWkgrgZDhAHA689yWdjh4i8oJHx28@dpg-d6166uruibrs73ff90n0-a/portfolio_tracker_db_4gxa}
+    username: ${username}
+    password: ${password}
+    jpa:
+      hibernate:
+        ddl-auto: none
+    flyway:
+      enabled: true
+
+
+server:
+  port: ${PORT:8081}
