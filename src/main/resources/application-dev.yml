@@ -28,5 +28,5 @@ app:
 
     admin:
       # Uses env vars if set; otherwise uses dev fallbacks
-      username: ${APP_ADMIN_USER:admin}
+      username: ${APP_ADMIN_USER}
       password-hash: ${APP_ADMIN_PASS_HASH}
