@@ -19,6 +19,9 @@ public class JwtConfig {
     @Bean("jwtSecretKey")
     public SecretKey jwtSecretKey(@Value("${app.security.jwt.secret}") String secret) {
         // Use a long secret (32+ chars recommended)
+        if (secret == null || secret.trim().length() < 32) {
+            throw new IllegalStateException("APP_JWT_SECRET is missing or too short (must be 32+ chars).");
+        }
         return new SecretKeySpec(secret.getBytes(StandardCharsets.UTF_8), "HmacSHA256");
     }
 
