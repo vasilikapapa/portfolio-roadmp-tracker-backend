@@ -2,15 +2,14 @@ spring:
   application:
     name: portfolio-tracker
 
-
   datasource:
-    url: ${SPRING_DATASOURCE_URL:}
-    username: ${SPRING_DATASOURCE_USERNAME:}
-    password: ${SPRING_DATASOURCE_PASSWORD:}
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
 
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: validate
 
   flyway:
     enabled: true
@@ -18,3 +17,16 @@ spring:
 
 server:
   port: ${PORT:8081}
+
+logging:
+  level:
+    org.springframework.security: TRACE
+
+app:
+  security:
+    jwt:
+      # Must be at least 32 chars for HS256
+      secret: ${APP_JWT_SECRET}
+    admin:
+      username: ${APP_ADMIN_USER}
+      password-hash: ${APP_ADMIN_PASS_HASH}
